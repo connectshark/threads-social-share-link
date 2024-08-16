@@ -6,10 +6,15 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        primary: 'rgb(var(--color-primary) / <alpha-value>)'
+      fontFamily: {
+        'TC': [`"Poetsen One"`, `FakePearl-Regular`, 'sans-serif', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas']
       }
-    },
+    }
   },
-  plugins: [],
+  daisyui: {
+    themes: ['light', 'dracula', 'cupcake'],
+  },
+  plugins: [
+    require('daisyui'),
+  ]
 }
