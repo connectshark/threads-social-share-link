@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'TC': [`"Poetsen One"`, `FakePearl-Regular`, 'sans-serif', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas']
+        'main': [`FakePearl`, 'sans-serif', 'ui-monospace', 'system-ui'],
+        'focus': [`Poetsen One`, 'sans-serif', 'ui-monospace', 'system-ui'],
       }
     }
   },

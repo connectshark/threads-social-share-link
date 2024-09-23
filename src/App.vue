@@ -6,19 +6,13 @@ const {
   loading
 } = useFetch('https://cdn.jsdelivr.net/gh/connectshark/studio-portfolio@latest/brands.json', {})
 
-const pages = [
-  {
-    link: '/link',
-    name: 'Follow'
-  }
-]
 </script>
 
 <template>
-  <header>
-    <div class="navbar bg-base-100 max-w-6xl mx-auto">
+  <header class="bg-base-200">
+    <div class="navbar max-w-6xl mx-auto">
       <div class="flex-1">
-        <router-link class="btn btn-ghost" to="/">ThreadsLinker</router-link>
+        <router-link class="btn btn-ghost font-focus" to="/">ThreadsLinker</router-link>
       </div>
       <div class="flex-none">
         <ul class="menu menu-horizontal px-1">
@@ -37,23 +31,13 @@ const pages = [
               </label>
             </div>
           </li>
-          <li>
-            <details>
-              <summary>Parent</summary>
-              <ul class="bg-base-100 rounded-t-none p-2">
-                <li><a>Link 1</a></li>
-                <li><a>Link 2</a></li>
-              </ul>
-            </details>
-          </li>
         </ul>
       </div>
     </div>
   </header>
   <router-view />
-
   <footer class="bg-base-200">
-
+    <div class=" rounded-b-[3rem] py-6 bg-base-100"></div>
     <div class="footer w-11/12  text-base-content py-10  max-w-6xl mx-auto">
       <aside>
         <h5>
@@ -65,10 +49,6 @@ const pages = [
           </a>
         </p>
       </aside>
-      <nav>
-        <h6 class="footer-title">Pages</h6>
-        <router-link class=" hover:underline" v-for="item in pages" :to="item.link">{{ item.name }}</router-link>
-      </nav>
       <div v-if="loading"></div>
       <nav v-else>
         <h6 class="footer-title">Brands</h6>
@@ -77,3 +57,18 @@ const pages = [
     </div>
   </footer>
 </template>
+
+<style>
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity .2s ease,
+    transform .2s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+  transform: scale(.8);
+}
+</style>

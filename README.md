@@ -1,5 +1,5 @@
 # threads-social-share-link
-[![build status](https://github.com/connectshark/threads-social-share-link/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/connectshark/threads-social-share-link/actions/workflows/deploy.yml)
+
 [![create-release](https://github.com/connectshark/threads-social-share-link/actions/workflows/create-release.yml/badge.svg?branch=main)](https://github.com/connectshark/threads-social-share-link/actions/workflows/create-release.yml)
 [![GitHub last commit](https://img.shields.io/github/last-commit/connectshark/threads-social-share-link.svg?style=flat)](https://github.com/connectshark/threads-social-share-link)
 ![GitHub stars](https://img.shields.io/github/stars/connectshark/threads-social-share-link.svg?style=social&label=Stars&style=plastic)
@@ -14,10 +14,7 @@
 ## 目錄
 
 - [專案已安裝內容](#專案已安裝內容)
-- [使用模板的優勢](#使用模板的優勢)
-  - [CSS主色設定](#css主色設定)
-  - [自動部署至gh-page](#自動部署至gh-page)
-  - [資料結構為主的路由](#資料結構為主的路由)
+- [參考文件](#參考文件)
 - [版權](#版權)
 ## 專案已安裝內容
 
@@ -28,21 +25,9 @@
 - tailwindcss
 - github action自動部署至 `gh-page`
 
-## 使用模板的優勢
+## 參考文件
 
-### CSS主色設定
-
-使用TailwindCSS官方建議方式設定好CSS變數，可一次調整專案色票。
-
-`src/index.css`
-
-### 自動部署至gh-page
-
-已設定github action功能，在推送新的內容時會觸發部署功能。
-
-### 資料結構為主的路由
-
-將`vue-router`搭配插件修改成以**資料結構**為主的路由設定，所有路由都放置在`src/pages`的資料夾中，預設找不到頁面會進入`[...slug].vue`的頁面。
+- [文件連結](https://developers.facebook.com/docs/threads/threads-web-intents/)
 
 ## 版權
 
