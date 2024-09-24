@@ -6,13 +6,15 @@ const {
   loading
 } = useFetch('https://cdn.jsdelivr.net/gh/connectshark/studio-portfolio@latest/brands.json', {})
 
+const SITE_TITLE = 'ThreadsLinker'
+
 </script>
 
 <template>
   <header class="bg-base-200">
     <div class="navbar max-w-6xl mx-auto">
       <div class="flex-1">
-        <router-link class="btn btn-ghost font-focus" to="/">ThreadsLinker</router-link>
+        <router-link class="btn btn-ghost font-focus" to="/">{{ SITE_TITLE }}</router-link>
       </div>
       <div class="flex-none">
         <ul class="menu menu-horizontal px-1">
@@ -37,11 +39,11 @@ const {
   </header>
   <router-view />
   <footer class="bg-base-200">
-    <div class=" rounded-b-[3rem] py-6 bg-base-100"></div>
-    <div class="footer w-11/12  text-base-content py-10  max-w-6xl mx-auto">
+    <div class=" rounded-b-[3rem] py-6 bg-base-100 mb-10"></div>
+    <div class="w-11/12  text-base-content max-w-6xl mx-auto grid grid-cols-1 gap-8">
       <aside>
-        <h5>
-          <router-link class="btn btn-ghost" to="/">ThreadsLinker</router-link>
+        <h5 class="mb-2">
+          <router-link class="btn btn-ghost font-focus" to="/">ThreadsLinker</router-link>
         </h5>
         <p>
           <a href="mailto:contact@nosegates.com" class="btn btn-ghost btn-sm">
@@ -52,8 +54,16 @@ const {
       <div v-if="loading"></div>
       <nav v-else>
         <h6 class="footer-title">Brands</h6>
-        <a v-for="item in data" class="link link-hover" :href="item.url">{{ item.name }}<i class='bx bx-link-external'></i></a>
+        <p class="mb-3" v-for="item in data">
+          <a class="link link-hover" :href="item.url">{{ item.name }}<i class='bx bx-link-external'></i></a>
+        </p>
       </nav>
+    </div>
+    <div class=" text-center py-10">
+      <p class="mb-10">
+        <a class=" btn btn-ghost btn-sm" href="https://github.com/connectshark/threads-social-share-link" target="_blank" rel="noopener noreferrer"><i class='bx bxl-github bx-sm'></i></a>
+      </p>
+      <p>Copyright<i class='bx bx-copyright'></i>2024 <router-link to="/" class="hover:underline">{{ SITE_TITLE }}</router-link></p>
     </div>
   </footer>
 </template>

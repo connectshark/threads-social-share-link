@@ -36,8 +36,8 @@
     <form @submit.prevent="isUsername = true">
       <div class="mb-8">
         <label class="input input-bordered input-accent flex items-center gap-2">
-          <ThreadsLogo class=" w-3"/>
-          <input v-model.trim="username" :disabled="isUsername" required type="text" class="grow" placeholder="Threads" />
+          <ThreadsLogo class="w-4"/>
+          <input v-model.trim="username" :disabled="isUsername" required type="text" class="w-full" placeholder="Threads" />
         </label>
       </div>
       <div class=" text-center">
@@ -70,7 +70,7 @@
       <div class="mb-8">
         <label class="input input-bordered input-accent flex items-center gap-2">
           <i class='bx bx-link'></i>
-          <input v-model.trim="link" :disabled="isLink" required type="url" class="grow" placeholder="連結" />
+          <input v-model.trim="link" :disabled="isLink" required type="url" class="w-full" placeholder="連結" />
         </label>
       </div>
       <div class=" text-center">
