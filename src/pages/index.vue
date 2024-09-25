@@ -19,15 +19,15 @@
     <p class="mb-10 text-center md:text-left text-lg md:text-2xl text-base-content/80">產生追蹤帳號連結</p>
     <Transition>
       <div class="mb-10" v-if="isUsername">
-        <p class=" mb-4">
+        <p class=" mb-4 text-center">
           <a class="underline text-xs" :href="followUser" target="_blank" rel="noopener noreferrer">{{ followUser }}<i class='bx bx-link-external'></i></a>
         </p>
         <p class=" space-x-2 text-center">
           <button class="btn btn-ghost" @click="clearUsername">
             <i class='bx bx-x bx-sm' />
           </button>
-          <button class="btn btn-secondary" @click="copy(followUser)">
-            <i v-if="copied" class='bx bxs-copy-alt bx-sm' />
+          <button :disabled="copiedFollow" class="btn btn-secondary" @click="copy(followUser, 'follow')">
+            <i v-if="copiedFollow" class='bx bxs-copy-alt bx-sm' />
             <i v-else class='bx bx-copy-alt bx-sm' />
           </button>
         </p>
@@ -59,7 +59,7 @@
         <button class="btn btn-ghost" @click="clearLink">
           <i class='bx bx-x bx-sm' />
         </button>
-        <button class="btn btn-secondary" @click="copiedPost(postContent)">
+        <button :disabled="copiedPost" class="btn btn-secondary" @click="copy(postContent, 'post')">
           <i v-if="copiedPost" class='bx bxs-copy-alt bx-sm' />
           <i v-else class='bx bx-copy-alt bx-sm' />
         </button>
@@ -83,8 +83,7 @@
 
 <script setup>
 import ThreadsLogo from '@/components/ThreadsLogo.vue'
-import { useClipboard } from '@vueuse/core'
-import { ref, computed } from 'vue'
+import { ref, computed, isRef, unref } from 'vue'
 
 const username = ref('')
 const isUsername = ref(false)
@@ -96,15 +95,22 @@ const clearUsername = () => {
   username.value = ''
 }
 
-const {
-  copy,
-  copied
-} = useClipboard()
+const copiedPost = ref(false)
+const copiedFollow = ref(false)
 
-const {
-  copy: copyPost,
-  copied: copiedPost
-} = useClipboard()
+const copy = async (text, type) => {
+  let content = isRef(text) ? unref(text) : text
+  await navigator.clipboard.writeText(content)
+  const typeObject = {
+    post: copiedPost,
+    follow: copiedFollow
+  }
+  typeObject[type].value = true
+  setTimeout(() => {
+    typeObject[type].value = false
+  }, 3000)
+}
+
 const link = ref('')
 const isLink = ref(false)
 
