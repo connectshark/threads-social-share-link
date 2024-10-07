@@ -55,7 +55,7 @@ const SITE_TITLE = 'ThreadsLinker'
       <nav v-else>
         <h6 class="footer-title">Brands</h6>
         <p class="mb-3" v-for="item in data">
-          <a class="link link-hover" :href="item.url">{{ item.name }}<i class='bx bx-link-external'></i></a>
+          <a target="_blank" class="link link-hover" :href="item.url">{{ item.name }}<i class='bx bx-link-external'></i></a>
         </p>
       </nav>
     </div>
